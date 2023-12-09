@@ -1,0 +1,15 @@
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\bin\Debug\net7.0\Language_Features.exe
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\bin\Debug\net7.0\Language_Features.deps.json
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\bin\Debug\net7.0\Language_Features.runtimeconfig.json
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\bin\Debug\net7.0\Language_Features.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\bin\Debug\net7.0\Language_Features.pdb
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\Language_Features.csproj.AssemblyReference.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\Language_Features.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\Language_Features.AssemblyInfoInputs.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\Language_Features.AssemblyInfo.cs
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\Language_Features.csproj.CoreCompileInputs.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\Language_Features.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\refint\Language_Features.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\Language_Features.pdb
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\Language_Features.genruntimeconfig.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Practice\Language_Features\obj\Debug\net7.0\ref\Language_Features.dll

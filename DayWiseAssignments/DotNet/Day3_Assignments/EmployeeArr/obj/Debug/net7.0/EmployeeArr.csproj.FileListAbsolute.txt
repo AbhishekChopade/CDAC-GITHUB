@@ -1,0 +1,15 @@
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\bin\Debug\net7.0\EmployeeArr.exe
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\bin\Debug\net7.0\EmployeeArr.deps.json
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\bin\Debug\net7.0\EmployeeArr.runtimeconfig.json
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\bin\Debug\net7.0\EmployeeArr.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\bin\Debug\net7.0\EmployeeArr.pdb
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\EmployeeArr.csproj.AssemblyReference.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\EmployeeArr.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\EmployeeArr.AssemblyInfoInputs.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\EmployeeArr.AssemblyInfo.cs
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\EmployeeArr.csproj.CoreCompileInputs.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\EmployeeArr.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\refint\EmployeeArr.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\EmployeeArr.pdb
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\EmployeeArr.genruntimeconfig.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day3_Assignments\EmployeeArr\obj\Debug\net7.0\ref\EmployeeArr.dll

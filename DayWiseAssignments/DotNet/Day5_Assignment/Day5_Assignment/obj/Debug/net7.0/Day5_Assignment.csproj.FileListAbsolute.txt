@@ -1,0 +1,15 @@
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\bin\Debug\net7.0\Day5_Assignment.exe
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\bin\Debug\net7.0\Day5_Assignment.deps.json
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\bin\Debug\net7.0\Day5_Assignment.runtimeconfig.json
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\bin\Debug\net7.0\Day5_Assignment.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\bin\Debug\net7.0\Day5_Assignment.pdb
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\Day5_Assignment.csproj.AssemblyReference.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\Day5_Assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\Day5_Assignment.AssemblyInfoInputs.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\Day5_Assignment.AssemblyInfo.cs
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\Day5_Assignment.csproj.CoreCompileInputs.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\Day5_Assignment.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\refint\Day5_Assignment.dll
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\Day5_Assignment.pdb
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\Day5_Assignment.genruntimeconfig.cache
+C:\Users\dac.STUDENTSDC\Desktop\Batch1AA\Dot_Net\Day5_Assignment\Day5_Assignment\obj\Debug\net7.0\ref\Day5_Assignment.dll
