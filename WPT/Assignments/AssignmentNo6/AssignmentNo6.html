@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Usage Survey</title>
+    <style>
+        #row1{
+            padding: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <h1>Internet Usage Survey</h1>
+        <p>This survey is being conducted to help identify the Internet usage patterns of our customers.</p>
+        <p>Please take a few moments to complete and submit this short form. Thank you for your cooperation.</p>
+        <br>
+        <div>
+        <table>
+            <tr>
+                
+                <td>What type of Internet conection do you have?<br>(Select One)</td>
+                <td id=>
+                    <select class="internet" id="inet" multiple>
+                        <option value="dial-up"  class="internet">Dial-up</option>
+                        <option value="dsl"  class="internet">DSL</option>
+                        <option value="highspeed"  class="internet">High Speed Cable</option>
+                        <option value="other"  class="internet">Other</option>
+                    </select>
+
+                </td>
+            </tr><br>
+            <tr>
+                <td><label for="computer">What type of computer do you use most at home?</label></td>
+                <td>
+                    <input type="radio" name="computer" id="dtop" class="computer" value="dtop"><label for="dtop" >Desktop</label>
+                    <input type="radio" name="computer" id="ltop" class="computer"  value="ltop"><label for="ltop">Laptop</label>
+                </td>
+                
+            </tr><br>
+            <tr>
+                <td><label for="reason">How would you describe your main reason for using the Internet?</label></td>
+                <td>
+                    <input type="radio" name="reason" id="work" class="reason" value="work"><label for="work">To do work-related activities</label><br>
+                    <input type="radio" name="reason" id="school" class="reason" value="school"><label for="school">To do school-related activities</label><br>
+                    <input type="radio" name="reason" id="entertainment" class="reason" value="entertainment"><label for="entertainment">For entertainment purpose</label><br>
+                    <input type="radio" name="reason" id="other" class="reason" value="other"><label for="other">Other activities</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="cmnt">Please comment on your opinions concering Internet privacy and safety:</label></td>
+                <td><textarea name="comment" id="cmnt" rows="5" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for ="fnm">First Name :</label></td>
+                <td><input type="text" name="fname" id="fnm"></td>
+                <td><label for ="lnm">Last Name :</label></td>
+                <td><input type="text" name="lname" id="lnm"></td>
+        </table>
+    </div>
+
+    </div>
+
+    
+</body>
+</html>

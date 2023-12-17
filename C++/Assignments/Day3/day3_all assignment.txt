@@ -1,0 +1,228 @@
+
+//1. factors of given number
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cout<<"Enter a number = ";
+    cin>>n;
+    cout<<"factors of "<<n<<" are = ";
+    for(int i=1;i<n;i++){
+        if(n%i==0){
+            std::cout<<i<<" ";
+        }
+    }
+
+    return 0;
+}
+
+//2. Given a positive integer N, find its reverse.
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    int r;
+    int revn = 0;
+    cout<<"Enter a number = ";
+    cin>>n;
+    while(n>0){
+        r = n%10;
+        revn = (revn*10)+r;
+        n=n/10;
+    }
+    cout<<"Reversed number = "<<revn;
+
+    return 0;
+}
+
+//3.Find sum of all numbers between two positive integers N and M, including N and M.
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    int m;
+    cout<<"Enter the 1st number = ";
+    cin>>n;
+    cout<<"Enter the 2nd number = ";
+    cin>>m;
+    int sum = 0;
+    for(int i=n;i<=m;i++){
+        sum+=i;
+       
+    }
+    cout<<"Sum = "<<sum;
+
+    return 0;
+}
+
+//4. Find prime numbers between two positive integers N and M, including N and M.
+
+//5. Find the first digit in a positive integer.
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    int fd;
+    cout<<"Enter the number = ";
+    cin>>n;
+    
+    fd = n/10;
+    cout<<"First digit = "<<fd;
+
+    return 0;
+}
+
+//6.Find the sum of all digit of a positive integer.
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    int r;
+    int sum = 0;
+    cout<<"Enter a number = ";
+    cin>>n;
+    while(n>0){
+        r = n%10;
+        sum = sum + r;
+        n = n/10;
+    }
+    cout<<"Sum of digits = "<<sum;
+
+    return 0;
+}
+
+//7. Find the sum of all digit of a integer (both positive and negative).
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    int r;
+    int sum = 0;
+    cout<<"Enter a number = ";
+    cin>>n;
+    while(n>0){
+        r = n%10;
+        sum = sum + r;
+        n = n/10;
+    }
+    cout<<"Sum of digits = "<<sum;
+
+    return 0;
+}
+
+//8. Find the product of all digit of a positive integer.
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    int r;
+    int prod = 1;
+    cout<<"Enter a number = ";
+    cin>>n;
+    while(n>0){
+        r = n%10;
+        prod = prod * r;
+        n = n/10;
+    }
+    cout<<"Product of digits = "<<prod;
+
+    return 0;
+}
+
+//9. Given a positive integer N, check if its palindrome or not. A palindrome number is a number that is same as its reverse.
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    int r;
+    int revn = 0;
+    cout<<"Enter a number = ";
+    cin>>n;
+    int temp = n;
+    while(temp>0){
+        r = temp%10;
+        revn = (revn*10)+r;
+        temp = temp/10;
+    }
+    if(n==revn)
+        cout<<n<<" is a palindrome number ";   
+    else
+        cout<<n<<" is not a palindrome number ";
+    
+
+    return 0;
+}
+
+//10.Given a positive integer N, check if it is a perfect number or not.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cout<<"Enter a number = ";
+    cin>>n;
+    int sum = 0;
+    for(int i=1;i<n;i++){
+        if(n%i==0){
+            sum +=i;
+        }
+    }
+    if(n==sum)
+        cout<<n<<" is a perfect number";
+    else
+        cout<<n<<" is not a perfect number";
+
+    return 0;
+}
+
+//11. Given a positive integer N, check if it is an armstrong number or not.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    int d;
+    int sum = 0;
+    int r;
+    cout<<"Enter a number = ";
+    cin>>n;
+    cout<<"Enter number of digits = ";
+    cin>>d;
+    
+    while(n>0){
+        r = n % 10;
+        sum = sum + (r*r*r);
+        n=n/10;
+    }
+    
+    if(n==sum)
+        cout<<n<<" is a armstrong number";
+    else
+        cout<<n<<" is not a armstrong number";
+
+    return 0;
+}
+
+//12. Find the count of a digit in a given positive integer.
+
+#include<iostream>
+using namespace std;
+int main(){
+    int num,rem,dig;
+    int count = 0;
+    cout<<"Enter a number = ";
+    cin>>num;
+    cout<<"Enter a digit = ";
+    cin>>dig;
+    int t = num;
+    
+    while(t>0){
+        rem = t%10;
+        t=t/10;
+        if(rem==dig)
+            count++;
+    }
+    cout<<"Count of digit "<<dig<<" in "<<num<<" is "<<count;
+
+    return 0;
+}

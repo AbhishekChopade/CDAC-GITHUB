@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": "../../Assignments/54Assignments"
+		},
+		{
+			"path": "../../Assignments/Day9"
+		},
+		{
+			"path": "../../practice"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Assignments/Day10"
+		},
+		{
+			"path": "../../Assignments/Day8"
+		},
+		{
+			"path": "../../Assignments/Day4"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp"
+		}
+	}
+}
