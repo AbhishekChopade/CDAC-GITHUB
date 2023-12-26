@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+     function f1(){
+        var name=document.getElementById("username").value;
+         if(name.length<5)
+         {
+            document.getElementById("s1").innerHTML= "char be more than 5";
+         }else if(name==null || name==""){
+                      
+         }else
+         {
+               document.getElementById("p1").innerHTML=name;
+         }
+     }
+    </script>
+</head>
+<body>
+    <form >
+     Username:<input type="text"  id="username"><span id="s1"></span><br>
+     <button type="button" id="enter" onclick="f1()">Enter</button><br>
+
+    </form>
+    Hello 
+    <span id="p1"></span>
+</body>
+</html>
