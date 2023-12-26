@@ -1,0 +1,5 @@
+Product ID: 101Product Name: Chips
+Company: XYZ Snacks Inc.
+Price per Unit: $1.5
+Quantity: 10
+Total Price: $15
