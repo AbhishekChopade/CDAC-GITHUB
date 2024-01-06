@@ -1,0 +1,95 @@
+package com.app.queue;
+
+
+//Write a program to perform the following operations using Java.
+//1. Read the count of elements from user to create the simple queue using array.
+//2. Create the class and methods for the following and call them using a menu based program and
+//call them using a loop.
+//a. Show the queue
+//b. Store the data in the queue
+//c. Access the data from the queue
+//d. Check how many elements are there in the queue.
+//e. Check to see if the queue is full?
+//f. Check to see if queue is empty.
+public class LinearQueue {
+
+	private int queue[];
+	private int size;
+	private int front;
+	private int rear;
+	
+	public LinearQueue(int s) {
+		size = s;
+		queue = new int[size];
+		front = -1;
+		rear = -1;
+		
+	}
+	
+	public boolean isEmpty() {
+		return rear==-1;
+	}
+	
+	public boolean isFull() {
+		return rear==(size-1);
+	}
+	
+	public void display() {
+		if(isEmpty())
+			throw new RuntimeException("Queue is empty");
+		
+		for(int i=front;i<=rear;i++) {
+			System.out.print(queue[i]+", ");
+		}
+		System.out.println();
+	}
+	
+	public void enQueue(int val) {
+		if(isFull())
+			throw new RuntimeException("Queue is full");
+		
+		rear++;
+		queue[rear] = val;
+		
+		if(front==-1)
+			front=0;
+	}
+	
+	public int deQueue() {
+		if(isEmpty())
+			throw new RuntimeException("Queue is empty");
+		int val = queue[front];
+		
+//		if(front==rear) {
+//			front = -1;
+//			rear = -1;
+//		}
+//	
+//		front++;
+		for(int i=front;i<rear;i++) {
+			queue[i] = queue[i+1];
+		}
+		
+		rear--;
+		return val;
+	}
+	
+	public int peek() {
+		if(isEmpty())
+			throw new RuntimeException("Queue is empty");
+		
+		return queue[front];
+	}
+	
+	public int getCount() {
+		if(isEmpty())
+			throw new RuntimeException("Queue is empty");
+		int cnt = 0;
+		for(int i=front;i<=rear;i++) {
+			if(queue[i]!=0) {
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+}

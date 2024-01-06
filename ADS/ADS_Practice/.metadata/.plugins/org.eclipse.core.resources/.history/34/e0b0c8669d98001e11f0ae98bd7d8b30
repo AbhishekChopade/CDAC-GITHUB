@@ -1,0 +1,58 @@
+package com.app.stack;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class MyStack<T> {
+	Queue<T> mainQueue = new LinkedList<T>();
+	Queue<T> queue = new  LinkedList<T>();
+	
+	public void push(T t) {
+		mainQueue.add(t);
+		System.out.println(t+" is added in stack");
+	}
+	
+	public T pop() {
+		
+		if(mainQueue.isEmpty())
+			throw new RuntimeException("Stack is empty");
+		for(int i=0;i<mainQueue.size()-1;i++) {
+			queue.add(mainQueue.remove());
+		}
+		T val = mainQueue.remove();
+		System.out.print(val+" is removed from stack");
+		while(!(queue.isEmpty())) {
+			mainQueue.add(queue.remove());
+		}
+		System.out.println();
+		return val;
+	}
+	
+//	public void display() {
+//
+//		if(mainQueue.isEmpty())
+//			throw new RuntimeException("Stack is empty");
+//		for(int i=0;i<mainQueue.size();i++) {
+//			queue.add(mainQueue.remove());
+//		}
+//		
+//		
+//		while(!(queue.isEmpty())) {
+//			System.out.println(queue.g);
+//		}
+//	}
+	
+	public void display() {
+		if(mainQueue.isEmpty())
+			throw new RuntimeException("Stack is empty");
+		Queue<T> queue2 = new LinkedList<T>();
+		for(int i = 0; i < mainQueue.size(); i++) {
+			queue2.add(mainQueue.remove());
+		}
+		for(int i = 0; i < queue2.size(); i++) {
+			System.out.print(" " + queue2.peek());
+			mainQueue.add(queue2.remove());
+		}
+		System.out.println();
+	}
+}

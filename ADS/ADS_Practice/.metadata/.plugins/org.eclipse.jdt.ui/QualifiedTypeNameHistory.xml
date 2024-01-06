@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.app.ll.SinglyLinkedList.Node"/>
+    <fullyQualifiedTypeName name="com.app.ll.SinglyLinkedList"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.app.list.SinglyLinkedList"/>
+    <fullyQualifiedTypeName name="exceptions.QueueHandlingException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="exceptions.LinkedListHandlingException"/>
+    <fullyQualifiedTypeName name="com.app.questack.QueueUsingStack"/>
+    <fullyQualifiedTypeName name="com.app.exception.LinkedListHandlingException"/>
+    <fullyQualifiedTypeName name="com.app.queue.CircularQueue"/>
+    <fullyQualifiedTypeName name="com.app.queue.LinearQueue"/>
+    <fullyQualifiedTypeName name="com.app.ll.SinglyCircularLinkedList"/>
+    <fullyQualifiedTypeName name="com.app.stack.MyStack"/>
+    <fullyQualifiedTypeName name="com.app.tree.BinarySearchTree"/>
+    <fullyQualifiedTypeName name="java.util.Queue"/>
+    <fullyQualifiedTypeName name="java.util.Stack"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+    <fullyQualifiedTypeName name="com.app.tree.BinarySearchTree.Node"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="com.app.list.LinkedList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="com.app.list.LinkedList_2"/>
+</qualifiedTypeNameHistroy>

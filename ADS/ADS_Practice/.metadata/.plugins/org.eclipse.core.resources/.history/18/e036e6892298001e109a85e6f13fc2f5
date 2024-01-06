@@ -1,0 +1,102 @@
+package com.app.stack;
+
+import exceptions.StackHandlingException;
+
+public class Stack {
+	int[] stack;
+	int[] maxStack;
+	int size;
+	int top;
+	int maxTop;
+	//int max;
+	
+	public Stack(int s) {
+		size = s;
+		stack = new int[size];
+		maxStack = new int[size];
+		top = -1;
+		maxTop = -1;
+		//max = 0;
+	}
+	
+	public boolean isEmpty() {
+		if(top==-1)
+			return true;
+		return false;
+	}
+	public boolean isFull() {
+		if(top==(size-1))
+			return true;
+		return false;
+	}
+	
+	public void push(int val) throws StackHandlingException {
+		if(isFull()) 
+			throw new StackHandlingException("Stack is full");
+//		else {
+//			top++;
+//			stack[++top]=val;
+//			if(val>max)
+//				max = val;
+			
+		if(isEmpty()) {
+			top++;
+			//maxTop++;
+			stack[top] = val;
+			//maxStack[maxTop] = val;
+		}else {
+			if(val>maxStack[maxTop]) {
+				stack[++top] = val;
+				maxStack[++maxTop] = val;
+			}else
+				stack[++top] = val;
+		}
+	}
+	
+	public int pop() throws StackHandlingException {
+		if(isEmpty()) 
+			throw new StackHandlingException("Stack is empty");
+		if(stack[top]==maxStack[maxTop]) {
+			int data = stack[top];
+			top--;
+			maxTop--;
+			return data;
+		}else {
+			int data = stack[top];
+			top--;
+			return data;
+		}
+		
+	}
+	
+	public int top() throws StackHandlingException {
+		if(isEmpty()) {
+			throw new StackHandlingException("Stack is empty");
+		}else {
+			int topVal = stack[top];
+			return topVal;
+		}
+	}
+	
+	public int getMax() throws StackHandlingException {
+		if(isEmpty()) 
+			throw new StackHandlingException("Stack is empty");
+		
+		return maxStack[maxTop];
+		
+	}
+	
+	public void display() throws StackHandlingException {
+		if(isEmpty()) {
+			throw new StackHandlingException("Stack is empty");
+		}else {
+			
+			for(int i=top;i>=0;i--) {
+				System.out.println(stack[i]);
+			}
+			
+		}
+	}
+	
+	
+}

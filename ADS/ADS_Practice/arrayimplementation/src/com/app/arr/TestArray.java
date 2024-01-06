@@ -1,0 +1,76 @@
+package com.app.arr;
+
+import java.util.Scanner;
+
+public class TestArray {
+
+	public static void main(String[] args) {
+		try(Scanner sc = new Scanner(System.in)) {
+			System.out.println("Enter the size of an array :");
+			Array a1 = new Array(sc.nextInt());
+			boolean exit = false;
+			do {
+				System.out.println("Enter Options :\n"+"0. Add elements into array\n"+"1. Display the array\n"+"2. Reverse the array\n"
+						+"3. Replace the nth element from the array and print\n"+"4. Find the addition of all elements of the array\n"
+						+"5. Find the maximum number from the array\n"+"6. Print the average of all the elements from the array\n"
+						+"7. Display the even and odd number from the array separately\n"+"10. Exit\n");
+					try {
+						switch(sc.nextInt()) {
+						case 0://Add elements into array
+							System.out.println("Enter the elem to be added :");
+							a1.addElem(sc.nextInt());
+							break;
+						case 1://Display the array
+							System.out.println("Array :");
+							a1.display();
+							break;
+							
+						case 2://Reverse the array
+							System.out.println("Array before reverse :");
+							a1.display();
+							System.out.println("Array after reverse:");
+							a1.reverse();
+							a1.display();
+							break;
+							
+						case 3://Replace the nth element from the array and print
+							System.out.println("Enter the position and element : ");
+							int pos = sc.nextInt();
+							int val = a1.replace(pos, sc.nextInt());
+							System.out.println(val+" is replaced at position "+pos);
+							break;
+							
+						case 4://Find the addition of all elements of the array
+							int sum = a1.getSum();
+							System.out.println("Sum of all array elem = "+sum);
+							break;
+							
+						case 5://Find the maximum number from the array
+							int max = a1.getMax();
+							System.out.println("Max number from array is "+max);
+							break;
+							
+						case 6://Print the average of all the elements from the array
+							double avg = a1.getAvg();
+							System.out.println("Average of all array elem = "+avg);
+							break;
+							
+						case 7://Display the even and odd number from the array separately
+							a1.displayEvenAndOdd();
+							break;
+						
+						case 10://Exit
+							exit = true;
+							System.out.println("Exit !!!!");
+							break;
+						}
+					}catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
+					
+				
+			}while(!exit);
+		}
+	}
+
+}

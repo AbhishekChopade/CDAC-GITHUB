@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;tester&apos; to &apos;linear_queue_exam_practice/src&apos;&#x0D;&#x0A;- Original project: &apos;Assignment_No_3&apos;&#x0D;&#x0A;- Destination element: &apos;linear_queue_exam_practice/src&apos;&#x0D;&#x0A;- Original element: &apos;Assignment_No_3/src/tester&apos;" description="Copy package" destination="=linear_queue_exam_practice/src" element1="/src&lt;tester" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1702306482375" version="1.0"/>
+</session>

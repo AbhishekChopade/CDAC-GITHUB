@@ -1,0 +1,23 @@
+package tester;
+
+import com.app.list.LinkedList_2;
+
+public class TestList2 {
+
+	public static void main(String[] args) {
+		LinkedList_2 l2 = new LinkedList_2();
+		l2.addLast(10);
+		l2.addLast(20);
+		l2.addLast(30);
+		l2.addLast(40);
+		l2.addLast(50);
+		l2.list();
+		l2.addAtPos(33, 3);
+		l2.list();
+		l2.remove(20);
+		l2.list();
+		
+
+	}
+
+}

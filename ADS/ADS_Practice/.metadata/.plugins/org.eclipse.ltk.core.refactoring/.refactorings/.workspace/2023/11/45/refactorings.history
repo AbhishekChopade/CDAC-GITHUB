@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 0 elements to &apos;Assignment_No_7/src/singlycircularlinkedlist&apos;&#x0D;&#x0A;- Destination element: &apos;Assignment_No_7/src/singlycircularlinkedlist&apos;" description="Copy compilation units" destination="=Assignment_No_7/src&lt;singlycircularlinkedlist" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1699380927889" units="0" version="1.0"/>
+</session>

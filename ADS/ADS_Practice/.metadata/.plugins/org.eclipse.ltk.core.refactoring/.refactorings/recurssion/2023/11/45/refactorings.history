@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.app.recurr&apos; to &apos;AssignmentNo8/src&apos;&#x0D;&#x0A;- Original project: &apos;recurssion&apos;&#x0D;&#x0A;- Destination element: &apos;AssignmentNo8/src&apos;&#x0D;&#x0A;- Original element: &apos;recurssion/src/com.app.recurr&apos;" description="Copy package" destination="=AssignmentNo8/src" element1="/src&lt;com.app.recurr" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1699378205794" version="1.0"/>
+</session>

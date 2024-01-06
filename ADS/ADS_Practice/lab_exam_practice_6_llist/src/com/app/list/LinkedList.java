@@ -1,0 +1,75 @@
+package com.app.list;
+
+import com.app.exception.LinkedListHandlingException;
+
+public class LinkedList {
+
+	static class Node{
+
+		Node next;
+		int data;
+		public Node() {
+			
+		}
+		public Node(int data) {
+			next = null;
+			this.data = data;
+		}
+	}
+	
+	Node head;
+
+	public LinkedList() {
+		head = null;
+	}
+	
+	public boolean isEmpty() {
+		return head==null;
+	}
+	public void insertAtEnd(int num) throws LinkedListHandlingException {
+		Node newNode = new Node(num);
+		if(isEmpty()){
+//			newNode.next = head;
+//			head.next = newNode;
+			head = newNode;
+		}
+		else {
+			Node trav = head;
+			while(trav.next!=null) {
+				trav = trav.next;
+			}
+			
+			trav.next = newNode;
+		}
+		
+	}
+	
+	public void deleteFirst() throws LinkedListHandlingException {
+		if(isEmpty()) 
+			throw new LinkedListHandlingException("List is empty");
+		
+		if(head.next==null) {
+			head=null;
+		}
+		else {
+			head = head.next;
+		}
+		
+	}
+	
+	public void display() throws LinkedListHandlingException {
+		if(isEmpty()) {
+			throw new LinkedListHandlingException("Linked List is empty");
+		}else {
+			Node trav = head;
+			while(trav!=null) {
+				System.out.print(trav.data+" -> ");
+				trav = trav.next;	
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	
+}
