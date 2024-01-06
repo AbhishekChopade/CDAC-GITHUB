@@ -1,0 +1,123 @@
+DROP PROCEDURE IF EXISTS helloWorld;
+DELIMITER $$
+CREATE PROCEDURE helloWorld()
+BEGIN 
+	SELECT 'HelloWorld' AS value FROM DUAL;
+END;
+$$
+DELIMITER ;
+
+--Avg salary from worker:
+DROP PROCEDURE IF EXISTS avgSalWorker;
+DELIMITER $$
+CREATE PROCEDURE avgSalWorker()
+BEGIN
+SELECT AVG(SALARY) AS AvgerageSal FROM worker;
+END;
+$$
+DELIMITER ;
+
+
+--Worker DEtails when Id Passed
+DROP PROCEDURE IF EXISTS getEmpById;
+DELIMITER $$
+CREATE PROCEDURE getEmpById(id INT)
+BEGIN
+SELECT * FROM Worker WHERE WORKER_ID=id; 
+END;
+$$
+DELIMITER ;
+
+--Functionn 
+DELIMITER $$
+CREATE FUNCTION getDeptSalById(id INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+DECLARE deptName VARCHAR(20);
+DECLARE sal INT;
+SELECT DEPARTMENT INTO deptName FROM Worker WHERE WORKER_ID=id;
+SELECT SUM(SALARY) INTO sal FROM worker WHERE DEPARTMENT=deptName; 
+RETURN sal;
+END
+$$
+DELIMITER ;
+
+--Function with out param
+DELIMITER $$
+CREATE FUNCTION getSlaveWorker(IN dept, OUT moneyMaker)
+RETURNS VARCHAR(20)
+DETERMINISTIC
+BEGIN
+DECLARE slave VARCHAR(20);
+SELECT CONCAT(FIRST_NAME,' ',LAST_NAME) FROM worker INTO slave WHERE salary = (SELECT MIN(salary)FROM worker WHERE DEPARTMENT=dept);
+SELECT CONCAT(FIRST_NAME,' ',LAST_NAME) FROM worker INTO slave WHERE salary = (SELECT MAX(salary)FROM worker WHERE DEPARTMENT=dept);
+RETURN slave;
+END 
+$$
+DELIMITER ;
+
+--CREATE TABLE IF NOT EXISTS worker_log(FIRST_NAME VARCHAR(20), LAST_NAME VARCHAR(20), SALARY INT);
+DELIMITER $$
+CREATE TRIGGER logInsert
+AFTER INSERT ON worker
+FOR EACH ROW
+BEGIN
+INSERT INTO worker_log VALUES(NEW.FIRST_NAME, NEW.LAST_NAME, NEW.SALARY); 
+END; 
+$$
+DELIMITER ;
+
+--Cursor for getting names:
+DROP PROCEDURE IF EXISTS getNamesCur;
+DELIMITER $$
+CREATE PROCEDURE getNamesCur()
+BEGIN
+	DECLARE namesList VARCHAR(1000) DEFAULT "";
+	DECLARE done INT DEFAULT 0;
+	DECLARE fName VARCHAR(20);
+	DECLARE nameCursor CURSOR FOR SELECT FIRST_NAME FROM worker;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1;
+	OPEN nameCursor;
+	getName : LOOP
+		SELECT 'INTO LOOP';
+		FETCH nameCursor INTO fName;
+		IF done=1 THEN
+			SELECT 'CURSOR complete!! Exiting!!';
+			LEAVE getName;
+		END IF;
+		SELECT 'ADDING next Name';
+		SET namesList = CONCAT(namesList, ', ', fName);
+	END LOOP getName;
+	CLOSE nameCursor;
+	SELECT namesList as fNames;
+END 
+$$
+DELIMITER ;
+
+--Cursor for getting names:
+DROP PROCEDURE IF EXISTS getNamesCur;
+DELIMITER $$
+CREATE PROCEDURE getNamesCur(OUT fFNames VARCHAR(1000))
+BEGIN
+	DECLARE namesList VARCHAR(1000) DEFAULT "";
+	DECLARE done INT DEFAULT 0;
+	DECLARE fName VARCHAR(20);
+	DECLARE nameCursor CURSOR FOR SELECT FIRST_NAME FROM worker;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1;
+	OPEN nameCursor;
+	getName : LOOP
+		SELECT 'INTO LOOP';
+		FETCH nameCursor INTO fName;
+		IF done=1 THEN
+			SELECT 'CURSOR complete!! Exiting!!';
+			LEAVE getName;
+		END IF;
+		SELECT 'ADDING next Name';
+		SET namesList = CONCAT(namesList, ', ', fName);
+	END LOOP getName;
+	CLOSE nameCursor;
+	SELECT namesList INTO fFNames;
+END 
+$$
+DELIMITER ;

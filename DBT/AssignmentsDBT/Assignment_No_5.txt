@@ -1,0 +1,600 @@
+Q.1 Write a mysql statement to find the name, birth, department name, department block from the given tables.
+
++----+--------------+------------+------------+
+| id | name | dept_id | birth |
++----+--------------+------------+------------+
+| 1 | Maria Gloria | 2 | 1994-03-12 |
+| 2 | John Smith | 1 | 1993-02-07 |
+| 3 | Gal Rao | 4 | 1992-09-11 |
+| 4 | Jakey Smith | 2 | 1990-08-31 |
+| 5 | Rama Saho | 1 | 1994-12-09 |
+| 6 | Maria Gaga | 4 | 1993-10-09 |
++----+--------------+------------+------------+
+
+
++---------+--------------------------+------------+
+| dept_id | dept_name | dept_block |
++---------+--------------------------+------------+
+| 1 | Computer Science | B-Block |
+| 2 | Information Technology | C-Block |
+| 3 | Mechanical | A-Block |
+| 4 | Electronic Communication | D-Block |
++---------+--------------------------+------------+
+
+Ans:---
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> create database pgdac;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| pgdac              |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use pgdac;
+Database changed
+mysql> create table emp (id int,name varchar(20),dept_id int, birth date);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| dept_id | int         | YES  |     | NULL    |       |
+| birth   | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create table dept (dept_id int, dept_name varchar(30), dept_block varchar(10), primary key(dept_id));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc dept;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| dept_id    | int         | NO   | PRI | NULL    |       |
+| dept_name  | varchar(30) | YES  |     | NULL    |       |
+| dept_block | varchar(10) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table emp add primary key(dept_id);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| dept_id | int         | NO   | PRI | NULL    |       |
+| birth   | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table emp drop primary key(dept_id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(dept_id)' at line 1
+mysql> alter table emp drop primary key;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  |     | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| dept_id | int         | NO   |     | NULL    |       |
+| birth   | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table emp add primary key(id);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table emp add foreign key(dept_id) references dept(dept_id);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | NO   | PRI | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| dept_id | int         | NO   | MUL | NULL    |       |
+| birth   | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql>  insert into dept values(2, 'Information Tech', 'C-Block');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> delete from dept where dept_id=2;
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into dept values(1, 'Computer Science', 'B-Block');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into dept values(2, 'Information Tech', 'C-Block');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into dept values(3, 'Mechanical', 'A-Block');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into dept values(4, 'Electronic Comm', 'D-Block');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from dept;
++---------+------------------+------------+
+| dept_id | dept_name        | dept_block |
++---------+------------------+------------+
+|       1 | Computer Science | B-Block    |
+|       2 | Information Tech | C-Block    |
+|       3 | Mechanical       | A-Block    |
+|       4 | Electronic Comm  | D-Block    |
++---------+------------------+------------+
+4 rows in set (0.00 sec)
+
+mysql>  insert into emp values(1,'Maria Gloria',2,'1994-03-12');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into emp values(2,'John Smith',1,'1993-02-07');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into emp values(3,'Gal Rao',4,'1992-09-11');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(4,'Jakey Smith',2,'1990-08-31');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(5,'Rama Saho',1,'1994-12-09');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++----+--------------+---------+------------+
+| id | name         | dept_id | birth      |
++----+--------------+---------+------------+
+|  1 | Maria Gloria |       2 | 1994-03-12 |
+|  2 | John Smith   |       1 | 1993-02-07 |
+|  3 | Gal Rao      |       4 | 1992-09-11 |
+|  4 | Jakey Smith  |       2 | 1990-08-31 |
+|  5 | Rama Saho    |       1 | 1994-12-09 |
++----+--------------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select emp.name,emp.birth,dept.dept_name,dept.dept_block from emp
+    -> inner join dept
+    -> on emp.dept_id = dept.dept_id;
++--------------+------------+------------------+------------+
+| name         | birth      | dept_name        | dept_block |
++--------------+------------+------------------+------------+
+| John Smith   | 1993-02-07 | Computer Science | B-Block    |
+| Rama Saho    | 1994-12-09 | Computer Science | B-Block    |
+| Maria Gloria | 1994-03-12 | Information Tech | C-Block    |
+| Jakey Smith  | 1990-08-31 | Information Tech | C-Block    |
+| Gal Rao      | 1992-09-11 | Electronic Comm  | D-Block    |
++--------------+------------+------------------+------------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Q.2 Write a mysql statement to get name of students containing exactly five characters with ‘a’ as last letter.
+Suppose the student table is -
++----+-------+---------+------------+
+| id | name | dept_id | birth |
++----+-------+---------+------------+
+| 1 | Maria | 2 | 1994-03-12 |
+| 2 | John | 1 | 1993-02-07 |
+| 3 | Gal | 4 | 1992-09-11 |
+| 4 | Jakey | 2 | 1990-08-31 |
+| 5 | Rama | 1 | 1994-12-09 |
+| 6 | Maria | 4 | 1993-10-09 |
++----+-------+---------+------------+
+
+Ans:---
+
+mysql> create table student(id int, name varchar(20), dept_id int, birth date);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>  insert into emp_first values(1,'Maria',2,'1994-03-12');
+ERROR 1146 (42S02): Table 'pgdac.emp_first' doesn't exist
+mysql>  insert into student values(1,'Maria',2,'1994-03-12');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into student values(2,'John',1,'1993-02-07');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into student values(3,'Gal',4,'1992-09-11');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into student values(4,'Jakey',2,'1990-08-31');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into student values(5,'Rama',1,'1994-12-09');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  insert into student values(6,'Maria',4,'1993-10-09');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++------+-------+---------+------------+
+| id   | name  | dept_id | birth      |
++------+-------+---------+------------+
+|    1 | Maria |       2 | 1994-03-12 |
+|    2 | John  |       1 | 1993-02-07 |
+|    3 | Gal   |       4 | 1992-09-11 |
+|    4 | Jakey |       2 | 1990-08-31 |
+|    5 | Rama  |       1 | 1994-12-09 |
+|    6 | Maria |       4 | 1993-10-09 |
++------+-------+---------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select id,name,dept_id, birth from student where name like '____a';
++------+-------+---------+------------+
+| id   | name  | dept_id | birth      |
++------+-------+---------+------------+
+|    1 | Maria |       2 | 1994-03-12 |
+|    6 | Maria |       4 | 1993-10-09 |
++------+-------+---------+------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Q.3 Write a mysql statement to determine the age of each of the students.
+Suppose the table is -
++----+--------------+------------+------------+
+| id | name | department | birth |
++----+--------------+------------+------------+
+| 1 | Maria Gloria | CS | 1994-03-12 |
+| 2 | John Smith | IT | 1993-02-07 |
+| 3 | Gal Rao | CS | 1992-09-11 |
+| 4 | Jakey Smith | EC | 1990-08-31 |
+| 5 | Rama Saho | IT | 1994-12-09 |
+| 6 | Maria Gaga | EC | 1993-10-09 |
++----+--------------+------------+------------+
+
+Ans:---
+
+mysql> SELECT id,name,dept_id, TIMESTAMPDIFF(YEAR, birth, CURDATE()) as age from student;
++------+-------+---------+------+
+| id   | name  | dept_id | age  |
++------+-------+---------+------+
+|    1 | Maria |       2 |   29 |
+|    2 | John  |       1 |   30 |
+|    3 | Gal   |       4 |   31 |
+|    4 | Jakey |       2 |   33 |
+|    5 | Rama  |       1 |   28 |
+|    6 | Maria |       4 |   29 |
++------+-------+---------+------+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Q.4 These questions are based on the following two tables, Employee table and Reward table.
+
+Employee table
++-------------+------------+-----------+----------+--------------+-------------+
+| Employee_id | First_name | Last_name | Salary | Joining_date | Departement |
++-------------+------------+-----------+----------+--------------+-------------+
+| 1 | Bob | Kinto | 1000000 | 2019-01-20 | Finance |
+| 2 | Jerry | Kansxo | 6000000 | 2019-01-15 | IT |
+| 3 | Philip | Jose | 8900000 | 2019-02-05 | Banking |
+| 4 | John | Abraham | 2000000 | 2019-02-25 | Insurance |
+| 5 | Michael | Mathew | 2200000 | 2019-02-28 | Finance |
+| 6 | Alex | chreketo | 4000000 | 2019-05-10 | IT |
+| 7 | Yohan | Soso | 1230000 | 2019-06-20 | Banking |
++-------------+------------+-----------+----------+--------------+-------------+
+
+
+Reward table
++-----------------+-------------+--------+
+| Employee_ref_id | date_reward | amount |
++-----------------+-------------+--------+
+| 1 | 2019-05-11 | 1000 |
+| 2 | 2019-02-15 | 5000 |
+| 3 | 2019-04-22 | 2000 |
+| 1 | 2019-06-20 | 8000 |
++-----------------+-------------+--------+
+
+
+Ans:---
+
+mysql> use pgdac;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_pgdac |
++-----------------+
+| backup          |
+| bonus           |
+| dept            |
+| emp             |
+| student         |
+| title           |
+| worker          |
+| worker2         |
++-----------------+
+8 rows in set (0.03 sec)
+
+mysql> create table Employee(Employee_id int , First_name varchar(30),Last_name varchar(30),Salary int,Joining_date date,Department varchar(30));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql>  create table Reward(Employee_ref_id int , Date_reward date,amount int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into Employee values(1,' Bob ',' Kinto ',1000000,'2019-01-20','Finance');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee values (2,' Jerry ',' Kansxo ',6000000,'2019-01-15','IT'),
+    ->                             (3,' Philip ',' Jose ',8900000,'2019-02-05','Banking'),
+    ->                             (4,' John ',' Abraham ',2000000,'2019-02-25','Insurance'),
+    ->                             (5,' Michael ',' Mathew ' ,2200000,'2019-02-28','Finance'),
+    ->                             (6,' Alex ',' Chreketo ',4000000,'2019-05-10','IT'),
+    ->                             (7,' Yohan ',' Soso ',1230000,'2019-06-20','Banking');
+Query OK, 6 rows affected (0.00 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+
+
+
+1. Get all employees.
+
+mysql> select * from Employee;
++-------------+------------+------------+---------+--------------+------------+
+| Employee_id | First_name | Last_name  | Salary  | Joining_date | Department |
++-------------+------------+------------+---------+--------------+------------+
+|           1 |  Bob       |  Kinto     | 1000000 | 2019-01-20   | Finance    |
+|           2 |  Jerry     |  Kansxo    | 6000000 | 2019-01-15   | IT         |
+|           3 |  Philip    |  Jose      | 8900000 | 2019-02-05   | Banking    |
+|           4 |  John      |  Abraham   | 2000000 | 2019-02-25   | Insurance  |
+|           5 |  Michael   |  Mathew    | 2200000 | 2019-02-28   | Finance    |
+|           6 |  Alex      |  Chreketo  | 4000000 | 2019-05-10   | IT         |
+|           7 |  Yohan     |  Soso      | 1230000 | 2019-06-20   | Banking    |
++-------------+------------+------------+---------+--------------+------------+
+7 rows in set (0.00 sec)
+
+
+
+2. Display the first name and last name of all employees.
+
+mysql> select First_Name,Last_Name from Employee;
++------------+------------+
+| First_Name | Last_Name  |
++------------+------------+
+|  Bob       |  Kinto     |
+|  Jerry     |  Kansxo    |
+|  Philip    |  Jose      |
+|  John      |  Abraham   |
+|  Michael   |  Mathew    |
+|  Alex      |  Chreketo  |
+|  Yohan     |  Soso      |
++------------+------------+
+7 rows in set (0.00 sec)
+
+
+
+3. Display all the values of the “First_Name” column using the alias “Employee Name”.
+
+mysql> select First_Name as 'Employee Name'  from Employee;
++---------------+
+| Employee Name |
++---------------+
+|  Bob          |
+|  Jerry        |
+|  Philip       |
+|  John         |
+|  Michael      |
+|  Alex         |
+|  Yohan        |
++---------------+
+7 rows in set (0.00 sec)
+
+
+
+4. Get all “Last_Name” in lowercase.
+
+mysql> select lower(Last_Name) from Employee;
++------------------+
+| lower(Last_Name) |
++------------------+
+|  kinto           |
+|  kansxo          |
+|  jose            |
+|  abraham         |
+|  mathew          |
+|  chreketo        |
+|  soso            |
++------------------+
+7 rows in set (0.00 sec)
+
+
+
+5. Get all “Last_Name” in uppercase.
+
+mysql> select upper(Last_Name) from Employee;
++------------------+
+| upper(Last_Name) |
++------------------+
+|  KINTO           |
+|  KANSXO          |
+|  JOSE            |
+|  ABRAHAM         |
+|  MATHEW          |
+|  CHREKETO        |
+|  SOSO            |
++------------------+
+7 rows in set (0.00 sec)
+
+
+
+6. Get unique “DEPARTMENT”.
+
+mysql> select distinct(Department) from Employee;
++------------+
+| Department |
++------------+
+| Finance    |
+| IT         |
+| Banking    |
+| Insurance  |
++------------+
+4 rows in set (0.00 sec)
+
+
+
+7. Get the first 4 characters of “FIRST_NAME” column.
+
+mysql> select substring(First_Name,1,4) from Employee;
++---------------------------+
+| substring(First_Name,1,4) |
++---------------------------+
+|  Bob                      |
+|  Jer                      |
+|  Phi                      |
+|  Joh                      |
+|  Mic                      |
+|  Ale                      |
+|  Yoh                      |
++---------------------------+
+7 rows in set (0.00 sec)
+
+
+8. Get the position of the letter ‘h’ in ‘John’.
+
+mysql> select position('h' in First_Name) as 'position of h in John' from Employee where Employee_id=4;
++-----------------------+
+| position of h in John |
++-----------------------+
+|                     4 |
++-----------------------+
+1 row in set (0.00 sec)
+
+
+9. Get all values from the “FIRST_NAME” column after removing white space on the right.
+
+mysql> select rtrim(First_Name) as 'First_Name' from Employee;
++------------+
+| First_Name |
++------------+
+|  Bob       |
+|  Jerry     |
+|  Philip    |
+|  John      |
+|  Michael   |
+|  Alex      |
+|  Yohan     |
++------------+
+7 rows in set (0.00 sec)
+
+
+10. Get all values from the “FIRST_NAME” column after removing white space on the left.
+
+mysql> select ltrim(First_Name) as 'First_Name' from Employee;
++------------+
+| First_Name |
++------------+
+| Bob        |
+| Jerry      |
+| Philip     |
+| John       |
+| Michael    |
+| Alex       |
+| Yohan      |
++------------+
+7 rows in set (0.00 sec)
+
+
+
+11. Write the syntax to create the “employee” table.
+
+mysql> create table Employee(Employee_id int , First_name varchar(30),Last_name varchar(30),Salary int,
+Joining_date date,Department varchar(30));
+Query OK, 0 rows affected (0.04 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

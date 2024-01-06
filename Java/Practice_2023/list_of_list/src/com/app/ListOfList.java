@@ -1,0 +1,39 @@
+package com.app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class ListOfList {
+    public static void main(String[] args) {
+//         System.out.println("Hello, World!");
+//         List<List<String>> paths =new ArrayList<>();// [["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]];
+//         paths.add(List.of("London","New York"));
+//         paths.add(List.of("New York","Lima"));
+//         paths.add(List.of("Lima","Sao Paulo"));
+//         System.out.println(paths.size());
+//         List<String> list = paths.get(paths.size()-1);
+//         System.out.println(list.get(list.size()-1));
+//         System.out.println(paths.get(2).get(1));
+        
+//         List<List<Integer>> listOfLists = new ArrayList<>();
+//
+//        // Adding inner lists to the outer list
+//        listOfLists.add(List.of(1, 2, 3));
+//        listOfLists.add(List.of(4, 5, 6));
+//        listOfLists.add(List.of(7, 8, 9));
+//        System.out.println(listOfLists.get(listOfLists.size()-1).get(listOfLists.size()-1));
+    	
+    	Integer a=100,b=200,c=100,d=200;
+    	if(a==c)
+    		System.out.println("true");
+    	else
+    		System.out.println("false");
+    	
+    	if(b==d)
+    		System.out.println("true");
+    	else
+    		System.out.println("false");
+
+
+    }
+}

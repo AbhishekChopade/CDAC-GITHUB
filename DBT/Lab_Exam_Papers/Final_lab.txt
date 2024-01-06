@@ -1,0 +1,237 @@
+DELIMITER &&
+CREATE PROCEDURE getWorkerBySalary(IN sal int)
+BEGIN
+   SELECT * FROM Worker where Salary=sal;
+END 
+&&
+
+DELIMITER ;
+   
+   
+DELIMITER &&
+CREATE PROCEDURE getSalary(OUT val int)
+BEGIN
+   SELECT  max(Salary) into val FROM Worker where Salary>20000;
+END 
+&&
+
+DELIMITER ;
+
+DELIMITER &&
+CREATE PROCEDURE getSal(In val1 int,OUT val2 int)
+BEGIN
+   SELECT  max(Salary) into val2 FROM Worker where Salary>val1;
+END 
+&&
+
+DELIMITER ;
+   
+   
+   
+DELIMITER &&
+CREATE PROCEDURE getName(OUT val varchar(20))
+BEGIN
+   SELECT  FIRST_NAME into val FROM Worker where WORKER_ID=2;
+END 
+&&
+
+DELIMITER 
+   
+Functions-----------------------------------
+
+
+DELIMITER &&
+CREATE FUNCTION getTSal(id int)
+RETURNS int
+DETERMINISTIC
+BEGIN 
+DECLARE tSal int;
+  select sum(Salary) into tSal from Worker where  WORKER_ID=id;
+RETURN tSal;
+END &&
+DELIMITER ;
+
+
+
+DELIMITER &&
+CREATE FUNCTION getTotalSal(id int)
+RETURNS int
+DETERMINISTIC
+BEGIN 
+DECLARE tSal int;
+
+  select sum(Salary) into tSal from Worker where  department=(select department from Worker where WORKER_ID=id);
+RETURN tSal;
+END &&
+DELIMITER ;
+
+
+
+
+/////////////////CURSORS
+
+
+
+DROP PROCEDURE IF EXISTS getNamesCur;
+DELIMITER $$
+CREATE PROCEDURE getNamesCur()
+BEGIN
+	DECLARE namesList VARCHAR(1000) DEFAULT "";
+	DECLARE done INT DEFAULT 0;
+	DECLARE fName VARCHAR(20);
+	DECLARE nameCursor CURSOR FOR SELECT FIRST_NAME FROM worker;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1;
+	OPEN nameCursor;
+	getName : LOOP
+		SELECT 'INTO LOOP';
+		FETCH nameCursor INTO fName;
+		IF done=1 THEN
+			SELECT 'CURSOR complete!! Exiting!!';
+			LEAVE getName;
+		END IF;
+		SELECT 'ADDING next Name';
+		SET namesList = CONCAT(namesList, ', ', fName);
+	END LOOP getName;
+	CLOSE nameCursor;
+	SELECT namesList as fNames;
+END 
+$$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS getNamesCur;
+DELIMITER $$
+CREATE PROCEDURE getLastName()
+BEGIN
+	DECLARE namesList VARCHAR(1000) DEFAULT "";
+	DECLARE done INT DEFAULT 0;
+	DECLARE lName VARCHAR(20);
+	DECLARE mycur CURSOR FOR SELECT LAST_NAME FROM worker;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1;
+	OPEN mycur;
+	loop_label : LOOP
+		SELECT 'INTO LOOP';
+		FETCH mycur INTO lName;
+		IF done=1 THEN
+			SELECT 'CURSOR complete!! Exiting!!';
+			LEAVE loop_label;
+		END IF;
+		SELECT 'ADDING next Name';
+		SET namesList = CONCAT(namesList, ', ', lName);
+	END LOOP loop_label;
+	CLOSE mycur;
+	SELECT namesList;
+END 
+$$
+DELIMITER ;
+
+
+DELIMITER &&
+CREATE PROCEDURE getLastNames()
+BEGIN
+	DECLARE done int default 0;
+	DECLARE nameList varchar(500) default"";
+	DECLARE lname varchar(20);
+	DECLARE mycur CURSOR FOR SELECT LAST_NAME FROM WORKER;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+	OPEN mycur;
+	loop_label : LOOP
+		SELECT 'INTO LOOP';
+		FETCH mycur INTO lname;
+		IF done=1 then 
+			select "CURSOR IS COMPLETE";
+			LEAVE loop_label;
+		END IF;
+		SELECT 'ADDING next Name';
+		set nameList = concat(nameList,", ",lname);
+	END LOOP loop_label;		
+	CLOSE mycur;
+	SELECT nameList;
+END &&
+DELIMITER ;
+
+
+
+
+
+
+CREATE PROCEDURE insert_into_temp()
+BEGIN
+ 
+  DECLARE done int DEFAULT 0;
+  DECLARE id INT ;
+  DECLARE title varchar(20);
+  DECLARE date datetime;
+  DECLARE mycur CURSOR FOR SELECT * FROM Title;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+  OPEN mycur;
+  insert_temp : LOOP
+      SELECT "INTO LOOP";
+      FETCH mycur INTO id, title, date;
+	  IF done=1 then
+	  SELECT "CURSOR IN COMPLETED";
+		LEAVE insert_temp;
+	  END IF;
+	  INSERT INTO Temp values(id,title,date);
+  END LOOP insert_temp;
+  CLOSE mycur;
+  SELECT * FROM Temp;
+
+END &&
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE insert_into_temp()
+BEGIN
+  DECLARE done INT DEFAULT 0;
+  DECLARE id INT;
+  DECLARE title VARCHAR(20);
+  DECLARE date_column DATETIME;
+  DECLARE mycur CURSOR FOR SELECT * FROM WORKER;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+  OPEN mycur;
+
+  insert_temp: LOOP
+    FETCH mycur INTO id, title, date_column;
+
+    IF done = 1 THEN
+      LEAVE insert_temp;
+    END IF;
+
+    INSERT INTO Temp VALUES (id, title, date_column);
+  END LOOP insert_temp;
+
+  CLOSE mycur;
+
+  SELECT * FROM Temp;
+END //
+
+DELIMITER ;
+
+--Cursor for getting names:
+DROP PROCEDURE IF EXISTS getNamesCur;
+DELIMITER $$
+CREATE PROCEDURE getNamesCur(OUT fFNames VARCHAR(1000))
+BEGIN
+	DECLARE namesList VARCHAR(1000) DEFAULT "";
+	DECLARE done INT DEFAULT 0;
+	DECLARE fName VARCHAR(20);
+	DECLARE nameCursor CURSOR FOR SELECT FIRST_NAME FROM worker;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1;
+	OPEN nameCursor;
+	getName : LOOP
+		SELECT 'INTO LOOP';
+		FETCH nameCursor INTO fName;
+		IF done=1 THEN
+			SELECT 'CURSOR complete!! Exiting!!';
+			LEAVE getName;
+		END IF;
+		SELECT 'ADDING next Name';
+		SET namesList = CONCAT(namesList, ', ', fName);
+	END LOOP getName;
+	CLOSE nameCursor;
+	SELECT namesList INTO fFNames;
+END 
+$$
+DELIMITER ;

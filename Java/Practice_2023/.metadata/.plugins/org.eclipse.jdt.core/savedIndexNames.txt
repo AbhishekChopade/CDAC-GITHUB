@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+E:\CDAC_SEP2023_MAIN\Modules\OOPS_With_Java\Practice_2023\.metadata\.plugins\org.eclipse.jdt.core
+3660489537.index
+1865797976.index
+2565356412.index

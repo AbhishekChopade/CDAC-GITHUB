@@ -1,0 +1,76 @@
+mysql> SELECT concat(first_name," ",last_name) as full_name, salary, joining_date,department from worker;
++-----------------+--------+---------------------+------------+
+| full_name       | salary | joining_date        | department |
++-----------------+--------+---------------------+------------+
+| Monika Arora    | 100000 | 2014-02-20 09:00:00 | HR         |
+| Niharika Verma  |  80000 | 2014-06-11 09:00:00 | Admin      |
+| Vishal Singhal  | 300000 | 2014-02-20 09:00:00 | HR         |
+| Amitabh Singh   | 500000 | 2014-02-20 09:00:00 | Admin      |
+| Vivek Bhati     | 500000 | 2014-06-11 09:00:00 | Admin      |
+| Vipul Diwan     | 200000 | 2014-06-11 09:00:00 | Account    |
+| Satish Kumar    |  75000 | 2014-01-20 09:00:00 | Account    |
+| Geetika Chauhan |  90000 | 2014-04-11 09:00:00 | Admin      |
++-----------------+--------+---------------------+------------+
+8 rows in set (0.00 sec)
+
+
+
+
+
+mysql> SELECT worker_id,concat(first_name," ",last_name) as full_name, salary, department from worker where department in('hr','admin');
++-----------+-----------------+--------+------------+
+| worker_id | full_name       | salary | department |
++-----------+-----------------+--------+------------+
+|         1 | Monika Arora    | 100000 | HR         |
+|         2 | Niharika Verma  |  80000 | Admin      |
+|         3 | Vishal Singhal  | 300000 | HR         |
+|         4 | Amitabh Singh   | 500000 | Admin      |
+|         5 | Vivek Bhati     | 500000 | Admin      |
+|         8 | Geetika Chauhan |  90000 | Admin      |
++-----------+-----------------+--------+------------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+mysql> SELECT worker_id,concat(first_name," ",last_name) as full_name, salary, TIMESTAMPDIFF(year,joining_date,current_date) from worker;
++-----------+-----------------+--------+-----------------------------------------------+
+| worker_id | full_name       | salary | TIMESTAMPDIFF(year,joining_date,current_date) |
++-----------+-----------------+--------+-----------------------------------------------+
+|         1 | Monika Arora    | 100000 |                                             9 |
+|         2 | Niharika Verma  |  80000 |                                             9 |
+|         3 | Vishal Singhal  | 300000 |                                             9 |
+|         4 | Amitabh Singh   | 500000 |                                             9 |
+|         5 | Vivek Bhati     | 500000 |                                             9 |
+|         6 | Vipul Diwan     | 200000 |                                             9 |
+|         7 | Satish Kumar    |  75000 |                                             9 |
+|         8 | Geetika Chauhan |  90000 |                                             9 |
++-----------+-----------------+--------+-----------------------------------------------+
+
+
+
+
+mysql> SELECT * from worker where month(joining_date)=2 and year(joining_date);
++-----------+------------+-----------+--------+---------------------+------------+
+| WORKER_ID | FIRST_NAME | LAST_NAME | SALARY | JOINING_DATE        | DEPARTMENT |
++-----------+------------+-----------+--------+---------------------+------------+
+|         1 | Monika     | Arora     | 100000 | 2014-02-20 09:00:00 | HR         |
+|         3 | Vishal     | Singhal   | 300000 | 2014-02-20 09:00:00 | HR         |
+|         4 | Amitabh    | Singh     | 500000 | 2014-02-20 09:00:00 | Admin      |
++-----------+------------+-----------+--------+---------------------+------------+
+
+
+
+mysql> SELECT * from worker where salary>50000 and salary<=100000;
++-----------+------------+-----------+--------+---------------------+------------+
+| WORKER_ID | FIRST_NAME | LAST_NAME | SALARY | JOINING_DATE        | DEPARTMENT |
++-----------+------------+-----------+--------+---------------------+------------+
+|         1 | Monika     | Arora     | 100000 | 2014-02-20 09:00:00 | HR         |
+|         2 | Niharika   | Verma     |  80000 | 2014-06-11 09:00:00 | Admin      |
+|         7 | Satish     | Kumar     |  75000 | 2014-01-20 09:00:00 | Account    |
+|         8 | Geetika    | Chauhan   |  90000 | 2014-04-11 09:00:00 | Admin      |
++-----------+------------+-----------+--------+---------------------+------------+
+4 rows in set (0.00 sec)
+
+

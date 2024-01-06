@@ -1,0 +1,50 @@
+package utils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.app.core.*;
+import static java.time.LocalDate.parse;
+
+import custom_exceptions.*;
+
+public class CustomerUtils {
+	public static Customer findByEmailPassword(String email,String password,Map<String,Customer> custMap) throws CustomerHandlingExceptions {
+		
+		Customer cust = custMap.get(email);
+		boolean check = custMap.containsKey(email);
+		if(check==false)
+			throw new CustomerHandlingExceptions("Invalid email");
+		if(!(cust.getPassword().equals(password)))
+			throw new CustomerHandlingExceptions("Invalid Password");
+		return cust;
+
+	}
+	
+//	public static List<Customer> populateCustomer(){
+//		List<Customer> customerList =  new ArrayList<>();
+//		customerList.add(new Customer("Ram", "Mane", "ram@gmail", "ram123", 2000, parse("2015-08-20"), ServicePlan.GOLD,parse("2023-02-13")));
+//		customerList.add(new Customer("Yash", "Patil", "yash@gmail", "yash123", 1000, parse("2019-12-22"), ServicePlan.SILVER,parse("2023-06-30")));
+//		customerList.add(new Customer("Om", "Ankle", "om@gmail", "om123", 2000, parse("2017-12-24"), ServicePlan.GOLD,parse("2023-08-15")));
+//		customerList.add(new Customer("Raj", "Shinde", "raj@gmail", "raj123", 10000, parse("2014-04-01"), ServicePlan.PLATINUM,parse("2023-03-06")));
+//		customerList.add(new Customer("Pavan", "Rane", "pavan@gmail", "pavan123", 5000, parse("2016-10-21"), ServicePlan.DIAMOND,parse("2023-09-17")));
+//		customerList.add(new Customer("Vidit", "Sagare", "vidit@gmail", "vidit123", 10000, parse("2016-10-21"), ServicePlan.PLATINUM,parse("2023-10-01")));
+//		customerList.add(new Customer("Rohit", "Kore", "rohit@gmail", "pavan123", 5000, parse("2018-01-01"), ServicePlan.DIAMOND,parse("2023-05-29")));
+//		return customerList;
+//	}
+	
+	public static Map<String,Customer> populateCustomer(){
+		Map<String,Customer> customerMap =  new HashMap<>();
+		customerMap.put("ram@gmail",new Customer("Ram", "Mane", "ram@gmail", "ram123", 2000, parse("2015-08-20"), ServicePlan.GOLD,parse("2023-02-13")));
+		customerMap.put("yash@gmail",new Customer("Yash", "Patil", "yash@gmail", "yash123", 1000, parse("2019-12-22"), ServicePlan.SILVER,parse("2023-06-30")));
+		customerMap.put("om@gmail",new Customer("Om", "Ankle", "om@gmail", "om123", 2000, parse("2017-12-24"), ServicePlan.GOLD,parse("2023-08-15")));
+		customerMap.put("raj@gmail",new Customer("Raj", "Shinde", "raj@gmail", "raj123", 10000, parse("2014-04-01"), ServicePlan.PLATINUM,parse("2023-03-06")));
+		customerMap.put("pavan@gmail",new Customer("Pavan", "Rane", "pavan@gmail", "pavan123", 5000, parse("2016-10-21"), ServicePlan.DIAMOND,parse("2023-09-17")));
+		customerMap.put("vidit@gmail",new Customer("Vidit", "Sagare", "vidit@gmail", "vidit123", 10000, parse("2016-10-21"), ServicePlan.PLATINUM,parse("2023-10-01")));
+		customerMap.put("rohit@gmail",new Customer("Rohit", "Kore", "rohit@gmail", "pavan123", 5000, parse("2018-01-01"), ServicePlan.DIAMOND,parse("2023-05-29")));
+		return customerMap;
+	}
+	
+}
